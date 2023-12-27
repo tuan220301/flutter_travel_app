@@ -33,7 +33,7 @@ class _ComponentsState extends State<Components> {
           title: "Components",
         ),
         backgroundColor: NowUIColors.bgColorScreen,
-        drawer: const NowDrawer(currentPage: "Components"),
+        drawer: NowDrawer(currentPage: "Components"),
         body: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.only(right: 16, left: 16, bottom: 36),

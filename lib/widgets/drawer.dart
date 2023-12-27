@@ -61,18 +61,18 @@ class NowDrawer extends StatelessWidget {
                     }
                   },
                   iconColor: NowUIColors.primary,
-                  title: "Home",
+                  title: "Trang chủ",
                   isSelected: currentPage == "Home" ? true : false),
               DrawerTile(
                   icon: FontAwesomeIcons.dharmachakra,
                   onTap: () {
-                    if (currentPage != "Components") {
-                      Navigator.pushReplacementNamed(context, '/components');
+                    if (currentPage != "View360Image") {
+                      Navigator.pushReplacementNamed(context, '/360viewer');
                     }
                   },
                   iconColor: NowUIColors.error,
-                  title: "Components",
-                  isSelected: currentPage == "Components" ? true : false),
+                  title: "Tham quan 360",
+                  isSelected: currentPage == "View360Image" ? true : false),
               DrawerTile(
                   icon: FontAwesomeIcons.newspaper,
                   onTap: () {

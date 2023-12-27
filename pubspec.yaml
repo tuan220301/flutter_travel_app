@@ -82,6 +82,7 @@ flutter:
     - assets/imgs/android.png
     - assets/imgs/ios.png
     - assets/imgs/creative-tim.png
+    - assets/imgs/Ut_dieu/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
