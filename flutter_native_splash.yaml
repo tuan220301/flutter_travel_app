@@ -1,0 +1,12 @@
+flutter_native_splash:
+  color: "#e1f5fe"
+  background_image: assets/imgs/logo_patsoft.jpg
+  color_dark: "#eeeeee"
+  android: true
+  ios: true
+  # image_dark: assets/logo_lockup_flutter_vertical_wht.png
+  android_12:
+    image: assets/imgs/logo_patsoft.jpg
+    # color: "#42a5f5"
+    # icon_background_color: "#eeeeee"
+  fullscreen: true
