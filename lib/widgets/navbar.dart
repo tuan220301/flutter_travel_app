@@ -4,46 +4,47 @@ import 'package:travel_app/constants/Theme.dart';
 // import 'package:travel_app/screens/trending.dart';
 // import 'package:travel_app/screens/fashion.dart';
 // import 'package:travel_app/screens/notifications.dart';
-import 'package:travel_app/screens/search.dart';
+// import 'package:travel_app/screens/search.dart';
 // import 'package:travel_app/screens/cart.dart';
 
-import 'package:travel_app/widgets/input.dart';
+// import 'package:travel_app/widgets/input.dart';
 
 class Navbar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
-  final String categoryOne;
-  final String categoryTwo;
-  final bool searchBar;
+  // final String categoryOne;
+  // final String categoryTwo;
+  // final bool searchBar;
   final bool backButton;
   final bool transparent;
   final bool reverseTextcolor;
   final bool rightOptions;
-  final List<String>? tags;
+  // final List<String>? tags;
   final Function? getCurrentPage;
-  final bool isOnSearch;
-  final TextEditingController? searchController;
-  final Function? searchOnChanged;
-  final bool searchAutofocus;
+  // final bool isOnSearch;
+  // final TextEditingController? searchController;
+  // final Function? searchOnChanged;
+  // final bool searchAutofocus;
   final bool noShadow;
   final Color? bgColor;
 
-  Navbar(
-      {this.title = "Home",
-      this.categoryOne = "",
-      this.categoryTwo = "",
-      this.tags,
-      this.transparent = false,
-      this.rightOptions = true,
-      this.reverseTextcolor = false,
-      this.getCurrentPage,
-      this.searchController,
-      this.isOnSearch = false,
-      this.searchOnChanged,
-      this.searchAutofocus = false,
-      this.backButton = false,
-      this.noShadow = false,
-      this.bgColor = NowUIColors.white,
-      this.searchBar = false});
+  Navbar({
+    this.title = "Home",
+    // this.categoryOne = "",
+    // this.categoryTwo = "",
+    // this.tags,
+    this.transparent = false,
+    this.rightOptions = true,
+    this.reverseTextcolor = false,
+    this.getCurrentPage,
+    // this.searchController,
+    // this.isOnSearch = false,
+    // this.searchOnChanged,
+    // this.searchAutofocus = false,
+    this.backButton = false,
+    this.noShadow = false,
+    this.bgColor = NowUIColors.white,
+    // this.searchBar = false
+  });
 
   final double _prefferedHeight = 180.0;
 
@@ -58,12 +59,12 @@ class Navbar extends StatefulWidget implements PreferredSizeWidget {
 class _NavbarState extends State<Navbar> {
   late String activeTag;
 
-  void initState() {
-    if (widget.tags != null && widget.tags?.length != 0) {
-      activeTag = widget.tags![0];
-    }
-    super.initState();
-  }
+  // void initState() {
+  //   if (widget.tags != null && widget.tags?.length != 0) {
+  //     activeTag = widget.tags![0];
+  //   }
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +72,7 @@ class _NavbarState extends State<Navbar> {
     //     widget.categoryOne.isNotEmpty && widget.categoryTwo.isNotEmpty;
 
     return Container(
-        height: 50,
+        height: 75,
         decoration: BoxDecoration(
             color: !widget.transparent ? widget.bgColor : Colors.transparent,
             boxShadow: [
@@ -154,29 +155,29 @@ class _NavbarState extends State<Navbar> {
                       )
                   ],
                 ),
-                if (widget.searchBar)
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 8, bottom: 0, left: 15, right: 15),
-                    child: Input(
-                        placeholder: "What are you looking for?",
-                        // controller: widget.searchController,
-                        onChanged: widget.searchOnChanged,
-                        autofocus: widget.searchAutofocus,
-                        suffixIcon: const Icon(
-                          Icons.zoom_in,
-                          color: NowUIColors.time,
-                          size: 20,
-                        ),
-                        onTap: () {
-                          if (!widget.isOnSearch) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Search()));
-                          }
-                        }),
-                  ),
+                // if (widget.searchBar)
+                //   Padding(
+                //     padding: const EdgeInsets.only(
+                //         top: 8, bottom: 0, left: 15, right: 15),
+                //     child: Input(
+                //         placeholder: "What are you looking for?",
+                //         // controller: widget.searchController,
+                //         onChanged: widget.searchOnChanged,
+                //         autofocus: widget.searchAutofocus,
+                //         suffixIcon: const Icon(
+                //           Icons.zoom_in,
+                //           color: NowUIColors.time,
+                //           size: 20,
+                //         ),
+                //         onTap: () {
+                //           if (!widget.isOnSearch) {
+                //             Navigator.push(
+                //                 context,
+                //                 MaterialPageRoute(
+                //                     builder: (context) => const Search()));
+                //           }
+                //         }),
+                //   ),
 
                 // if (categories)
                 // Row(

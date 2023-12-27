@@ -338,18 +338,18 @@ class _ComponentsState extends State<Components> {
                 padding: const EdgeInsets.only(top: 16.0),
                 child: Navbar(
                   title: "Categories",
-                  searchBar: true,
-                  categoryOne: "Incredible",
-                  categoryTwo: "Customization",
-                  backButton: true,
+                  // searchBar: true,
+                  // categoryOne: "Incredible",
+                  // categoryTwo: "Customization",
+                  // backButton: true,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16.0),
                 child: Navbar(
                   title: "Search",
-                  searchBar: true,
-                  backButton: true,
+                  // searchBar: true,
+                  // backButton: true,
                 ),
               ),
               const Padding(

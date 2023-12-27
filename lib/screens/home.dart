@@ -68,7 +68,7 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(
-            height: 10,
+            height: 5,
           ),
           CarouselSlider(
             options: CarouselOptions(
