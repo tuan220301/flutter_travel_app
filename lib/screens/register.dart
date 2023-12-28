@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/constants/Theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:travel_app/constants/printCus.dart';
 import 'package:travel_app/controllers/user.dart';
 import 'package:travel_app/firebaseservices.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,7 @@ class _RegisterState extends State<Register> {
         userController.setUser(_user);
       }
     } catch (error) {
-      print('error google sigin: $error');
+      printDebug('error google sigin:', '$error');
     }
   }
 
@@ -72,99 +73,87 @@ class _RegisterState extends State<Register> {
                         ],
                       ),
                     ),
-                    child: _user == null
-                        ? Center(
-                            child: SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.5,
-                              child: Column(
-                                children: [
-                                  const Text(
-                                    'PS TRAVEL APP',
-                                    style: TextStyle(
-                                      color: NowUIColors.textWhite,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 50,
-                                  ),
-                                  SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.7,
-                                    child: OutlinedButton(
-                                      onPressed: _handleGoogleSign,
-                                      style: ButtonStyle(
-                                        shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(99.0),
-                                          ),
-                                        ),
-                                        side: MaterialStateProperty.all<
-                                            BorderSide>(
-                                          const BorderSide(
-                                            color: Color.fromRGBO(
-                                                255, 255, 255, 0.6),
-                                            width: 1.0,
-                                          ),
-                                        ),
-                                        backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                          const Color.fromRGBO(
-                                              255, 255, 255, 0.2),
-                                        ),
-                                      ),
-                                      child: const Text(
-                                        'Đăng nhập bằng Google',
-                                        style: TextStyle(
-                                            color: NowUIColors.textWhite),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.7,
-                                    child: OutlinedButton(
-                                      onPressed: signInWithFacebook,
-                                      style: ButtonStyle(
-                                        shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(99.0),
-                                          ),
-                                        ),
-                                        side: MaterialStateProperty.all<
-                                            BorderSide>(
-                                          const BorderSide(
-                                            color: Color.fromRGBO(
-                                                255, 255, 255, 0.6),
-                                            width: 1.0,
-                                          ),
-                                        ),
-                                        backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                          const Color.fromRGBO(
-                                              255, 255, 255, 0.2),
-                                        ),
-                                      ),
-                                      child: const Text(
-                                        'Đăng nhập bằng Facebook',
-                                        style: TextStyle(
-                                            color: NowUIColors.textWhite),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                    child: Center(
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        child: Column(
+                          children: [
+                            const Text(
+                              'PS TRAVEL APP',
+                              style: TextStyle(
+                                color: NowUIColors.textWhite,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                          )
-                        : Home()),
+                            const SizedBox(
+                              height: 50,
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              child: OutlinedButton(
+                                onPressed: _handleGoogleSign,
+                                style: ButtonStyle(
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(99.0),
+                                    ),
+                                  ),
+                                  side: MaterialStateProperty.all<BorderSide>(
+                                    const BorderSide(
+                                      color: Color.fromRGBO(255, 255, 255, 0.6),
+                                      width: 1.0,
+                                    ),
+                                  ),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                    const Color.fromRGBO(255, 255, 255, 0.2),
+                                  ),
+                                ),
+                                child: const Text(
+                                  'Đăng nhập bằng Google',
+                                  style:
+                                      TextStyle(color: NowUIColors.textWhite),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              child: OutlinedButton(
+                                onPressed: signInWithFacebook,
+                                style: ButtonStyle(
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(99.0),
+                                    ),
+                                  ),
+                                  side: MaterialStateProperty.all<BorderSide>(
+                                    const BorderSide(
+                                      color: Color.fromRGBO(255, 255, 255, 0.6),
+                                      width: 1.0,
+                                    ),
+                                  ),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                    const Color.fromRGBO(255, 255, 255, 0.2),
+                                  ),
+                                ),
+                                child: const Text(
+                                  'Đăng nhập bằng Facebook',
+                                  style:
+                                      TextStyle(color: NowUIColors.textWhite),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )),
               ],
             ),
           ),

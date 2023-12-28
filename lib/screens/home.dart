@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -25,6 +26,7 @@ class ImageController extends GetxController {
 // ignore: must_be_immutable
 class Home extends StatelessWidget {
   final userControll = Get.put(UserController());
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   // final urlListController = Get.put(ImageController());
   Home({super.key});
   List<String> imageList0 = [
@@ -59,6 +61,11 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (_auth.currentUser != null) {
+      printDebug('user in home', _auth.currentUser);
+    } else {
+      printDebug('user in home', 'null');
+    }
     return Scaffold(
       appBar: Navbar(
         title: "Home",

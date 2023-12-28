@@ -563,7 +563,6 @@ class _TrendingState extends State<Trending> {
     return Scaffold(
         appBar: Navbar(
           title: "Trending",
-          tags: tags,
           getCurrentPage: _getCurrentPage,
           backButton: true,
         ),

@@ -11,7 +11,6 @@ import 'package:travel_app/widgets/card-small.dart';
 //screens
 import 'package:travel_app/screens/product.dart';
 import 'package:travel_app/screens/trending.dart';
-import 'package:travel_app/screens/fashion.dart';
 
 final Map<String, List<Map>> productCards = {
   "Shoes": [
@@ -113,15 +112,6 @@ class _SearchState extends State<Search> {
           backButton: true,
           title: "Search",
           rightOptions: false,
-          searchBar: true,
-          isOnSearch: true,
-          searchOnChanged: (String typedText) {
-            setState(() {
-              searchText = typedText;
-            });
-            _searchText(searchText);
-          },
-          searchAutofocus: true,
           // searchController: myController
         ),
         backgroundColor: NowUIColors.bgColorScreen,

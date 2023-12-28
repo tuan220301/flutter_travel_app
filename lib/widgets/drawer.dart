@@ -1,16 +1,22 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 import 'package:travel_app/constants/Theme.dart';
+import 'package:travel_app/constants/printCus.dart';
+import 'package:travel_app/controllers/user.dart';
 
 import 'package:travel_app/widgets/drawer-tile.dart';
 
 class NowDrawer extends StatelessWidget {
   final String currentPage;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final UserController userController = Get.put(UserController());
   NowDrawer({Key? key, required this.currentPage}) : super(key: key);
   void _handleSignOut() {
+    printDebug('signout', 'signout');
+    userController.setUser(null);
     _auth.signOut();
   }
 
