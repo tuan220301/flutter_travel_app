@@ -1,12 +1,14 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:travel_app/constants/printCus.dart';
+import 'package:travel_app/constants/data.dart';
 
 class SetView360Controller extends GetxController {
-  RxString viewShow = ''.obs;
+  RxMap viewShow = listScrollButtonBottom[0].obs;
 
-  void setView(String nameView) {
-    printDebug('view controller', nameView);
-    viewShow.value = nameView;
+  void setView(viewObject) {
+    // printDebug('view controller', viewObject);
+    viewShow.value = viewObject;
   }
 }
 

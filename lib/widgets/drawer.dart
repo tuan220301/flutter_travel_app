@@ -38,7 +38,11 @@ class NowDrawer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
                   children: [
-                    Image.asset("assets/imgs/now-logo.png"),
+                    const Text('Patsoft',
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: NowUIColors.textWhite)),
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
                       child: IconButton(
@@ -70,7 +74,7 @@ class NowDrawer extends StatelessWidget {
                   title: "Trang chủ",
                   isSelected: currentPage == "Home" ? true : false),
               DrawerTile(
-                  icon: FontAwesomeIcons.dharmachakra,
+                  icon: FontAwesomeIcons.circleDot,
                   onTap: () {
                     if (currentPage != "View360Image") {
                       Navigator.pushReplacementNamed(context, '/360viewer');

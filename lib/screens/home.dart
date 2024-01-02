@@ -28,44 +28,81 @@ class Home extends StatelessWidget {
   final userControll = Get.put(UserController());
   final FirebaseAuth _auth = FirebaseAuth.instance;
   // final urlListController = Get.put(ImageController());
+  RxInt indexListImg = 0.obs;
   Home({super.key});
-  List<String> imageList0 = [
-    'assets/imgs/Ut_dieu/image1.jpg',
-    'assets/imgs/Ut_dieu/image2.jpg',
-    'assets/imgs/Ut_dieu/image3.jpg',
-    'assets/imgs/Ut_dieu/image4.jpg',
+  var imageList = [
+    {
+      'id': '1',
+      'listImg': [
+        'assets/imgs/Ut_dieu/image1.jpg',
+        'assets/imgs/Ut_dieu/image2.jpg',
+        'assets/imgs/Ut_dieu/image3.jpg',
+        'assets/imgs/Ut_dieu/image4.jpg',
+        'assets/imgs/Ut_dieu/image5.jpg',
+        'assets/imgs/Ut_dieu/image6.jpg',
+        'assets/imgs/Ut_dieu/image7.jpg',
+        'assets/imgs/Ut_dieu/image8.jpg',
+        'assets/imgs/Ut_dieu/image9.jpg',
+        'assets/imgs/Ut_dieu/image10.jpg',
+        'assets/imgs/Ut_dieu/image11.jpg',
+        'assets/imgs/Ut_dieu/image12.jpg',
+      ]
+    },
+    {
+      'id': '2',
+      'listImg': [
+        'assets/imgs/Dai_thanh/img1.jpg',
+        'assets/imgs/Dai_thanh/img2.jpg',
+        'assets/imgs/Dai_thanh/img3.jpg',
+        'assets/imgs/Dai_thanh/img4.jpg',
+        'assets/imgs/Dai_thanh/img5.jpg',
+        'assets/imgs/Dai_thanh/img6.jpg',
+        'assets/imgs/Dai_thanh/img7.jpg',
+        'assets/imgs/Dai_thanh/img8.jpg',
+        'assets/imgs/Dai_thanh/img9.jpg',
+        'assets/imgs/Dai_thanh/img10.jpg',
+        'assets/imgs/Dai_thanh/img11.jpg',
+        'assets/imgs/Dai_thanh/img12.jpg',
+      ]
+    },
+    {
+      'id': '3',
+      'listImg': [
+        'assets/imgs/Ut_ngan/img1.jpg',
+        'assets/imgs/Ut_ngan/img2.jpg',
+        'assets/imgs/Ut_ngan/img3.jpg',
+        'assets/imgs/Ut_ngan/img4.jpg',
+        'assets/imgs/Ut_ngan/img5.jpg',
+        'assets/imgs/Ut_ngan/img6.jpg',
+        'assets/imgs/Ut_ngan/img7.jpg',
+        'assets/imgs/Ut_ngan/img8.jpg',
+        'assets/imgs/Ut_ngan/img9.jpg',
+        'assets/imgs/Ut_ngan/img10.jpg',
+        'assets/imgs/Ut_ngan/img11.jpg',
+        'assets/imgs/Ut_ngan/img12.jpg',
+      ]
+    }
   ];
 
   var listButton = <Map<String, dynamic>>[
-    {
-      'id': 1,
-      'image': 'assets/imgs/Ut_dieu/image12.jpg',
-      'title': 'Giới thiệu'
-    },
-    {'id': 2, 'image': 'assets/imgs/Ut_dieu/image10.jpg', 'title': 'Ẩm thực'},
-    {
-      'id': 3,
-      'image': 'assets/imgs/Ut_dieu/image11.jpg',
-      'title': 'Đờn ca tài tử'
-    },
-    {
-      'id': 4,
-      'image': 'assets/imgs/Ut_dieu/image9.jpg',
-      'title': 'Hát cho nhau'
-    },
+    {'id': 1, 'image': 'assets/imgs/Ut_dieu/image12.jpg', 'title': 'Út Diệu'},
+    {'id': 2, 'image': 'assets/imgs/Ut_dieu/image11.jpg', 'title': 'Đại Thành'},
+    {'id': 3, 'image': 'assets/imgs/Ut_dieu/image9.jpg', 'title': 'Út Ngân'},
   ];
 
-  void handleChangeListImage(int index) {
-    printDebug('index', index);
+  void handleChangeListImage(ele) {
+    printDebug('ele', ele);
+    indexListImg.value = ele['id'] - 1;
+    printDebug('indexListImg.value', indexListImg.value);
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_auth.currentUser != null) {
-      printDebug('user in home', _auth.currentUser);
-    } else {
-      printDebug('user in home', 'null');
-    }
+    // if (_auth.currentUser != null) {
+    //   printDebug('user in home', _auth.currentUser);
+    // } else {
+    //   printDebug('user in home', 'null');
+    // }
     return Scaffold(
       appBar: Navbar(
         title: "Home",
@@ -77,37 +114,42 @@ class Home extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          CarouselSlider(
-            options: CarouselOptions(
-              height: MediaQuery.of(context).size.height * 0.7,
-              enlargeCenterPage: true,
-              autoPlay: true,
-              aspectRatio: 1, // Adjust the aspect ratio as needed
-              autoPlayCurve: Curves.fastOutSlowIn,
-              enableInfiniteScroll: true,
-              autoPlayAnimationDuration: const Duration(milliseconds: 600),
-              viewportFraction: 0.8,
-            ),
-            // ignore: invalid_use_of_protected_member
-            items: imageList0.map((imageUrl) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    width: 400,
-                    margin: const EdgeInsets.symmetric(horizontal: 1.0),
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(8.0),
-                      image: DecorationImage(
-                        image: AssetImage(imageUrl),
-                        fit: BoxFit.cover,
+          Obx(() {
+            return CarouselSlider(
+              options: CarouselOptions(
+                height: MediaQuery.of(context).size.height * 0.7,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                aspectRatio: 1, // Adjust the aspect ratio as needed
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                // autoPlayAnimationDuration: const Duration(milliseconds: 600),
+                viewportFraction: 0.8,
+              ),
+              // ignore: invalid_use_of_protected_member
+              items:
+                  (imageList[indexListImg.value]['listImg'] as List<String>? ??
+                          [])
+                      .map((imageUrl) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Container(
+                      width: 400,
+                      margin: const EdgeInsets.symmetric(horizontal: 1.0),
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(8.0),
+                        image: DecorationImage(
+                          image: AssetImage(imageUrl),
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                  );
-                },
-              );
-            }).toList(),
-          ),
+                    );
+                  },
+                );
+              }).toList(),
+            );
+          }),
           const SizedBox(
             height: 10,
           ),
@@ -127,7 +169,7 @@ class Home extends StatelessWidget {
                           width: 120,
                           height: 80,
                           child: IconButton(
-                            onPressed: () {},
+                            onPressed: () => handleChangeListImage(element),
                             icon: Image.asset(element['image'],
                                 fit: BoxFit.cover),
                           ),
