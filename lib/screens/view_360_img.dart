@@ -15,85 +15,103 @@ class View360Image extends StatelessWidget {
   View360Image({Key? key});
   // ignore: non_constant_identifier_names
   final SetView360Controll = Get.put(SetView360Controller());
+  RxNum selectedButtonIndex = RxNum(0);
 
   void handleChangeView() {
     // Handle view change
   }
   void onChange360Image(index) {
-    // printDebug('index: ', index);
-    // printDebug('image: ', listScrollButtonBottom[index]['image']);
-    SetView360Controll.setView(listScrollButtonBottom[index]);
+    if (index != selectedButtonIndex.value) {
+      SetView360Controll.setView(listScrollButtonBottom[index]);
+      selectedButtonIndex.value = index;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    printDebug('360 img', SetView360Controll.viewShow.value['image_360_def']);
     return Scaffold(
         appBar: Navbar(
           title: "Tham quan 360",
         ),
         backgroundColor: NowUIColors.bgColorScreen,
         drawer: NowDrawer(currentPage: "View360Image"),
-        body: Obx(() => Stack(
-              children: [
-                Center(
-                  child: KeyedSubtree(
-                    key: UniqueKey(),
-                    child: CustomPanoramaViewer(
-                      imagePath:
-                          SetView360Controll.viewShow.value['image_360_def'],
-                      latitude: -42.366601616265605,
-                      longitude: 25.81805741670187,
-                      ListHotPot:
-                          SetView360Controll.viewShow.value['list_image_360'],
-                      onTap: handleChangeView,
-                    ),
+        body: Obx(() {
+          printDebug('selected btn: ', selectedButtonIndex.value);
+          return Stack(
+            children: [
+              Center(
+                child: KeyedSubtree(
+                  key: UniqueKey(),
+                  child: CustomPanoramaViewer(
+                    imagePath:
+                        SetView360Controll.viewShow.value['image_360_def'],
+                    latitude: -42.366601616265605,
+                    longitude: 25.81805741670187,
+                    ListHotPot:
+                        SetView360Controll.viewShow.value['list_image_360'],
+                    onTap: handleChangeView,
                   ),
                 ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: Container(
-                    height: 100,
-                    color: Colors.white,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children:
-                            listScrollButtonBottom.asMap().entries.map((entry) {
-                          final index = entry.key;
-                          final element = entry.value;
-                          return SizedBox(
-                            width: 145,
-                            height: 120,
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  height: 110,
+                  color: Colors.white,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children:
+                          listScrollButtonBottom.asMap().entries.map((entry) {
+                        final index = entry.key;
+                        final element = entry.value;
+                        return Container(
+                          width: 145,
+                          height: 110,
+                          margin: const EdgeInsets.all(1),
+                          child: OutlinedButton(
+                            onPressed: () => onChange360Image(index),
+                            style: OutlinedButton.styleFrom(
+                              side: BorderSide(
+                                  width: 1,
+                                  color: index == selectedButtonIndex.value
+                                      ? NowUIColors.active
+                                      : NowUIColors.input),
+                            ),
                             child: Column(
                               children: [
+                                const SizedBox(
+                                  height: 10,
+                                ),
                                 SizedBox(
                                   width: 145,
-                                  height: 66,
-                                  child: IconButton(
-                                    onPressed: () => onChange360Image(index),
-                                    icon: Image.asset(
-                                      element['image'].toString(),
-                                      fit: BoxFit.cover,
-                                    ),
+                                  height: 60,
+                                  child: Image.asset(
+                                    element['image'].toString(),
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                                 Text(
                                   element['title'].toString(),
-                                  style: const TextStyle(fontSize: 14),
+                                  style: const TextStyle(
+                                      fontSize: 12, color: NowUIColors.black),
+                                  textAlign: TextAlign.center,
+                                  // ignore: unrelated_type_equality_checks
                                 ),
                               ],
                             ),
-                          );
-                        }).toList(),
-                      ),
+                          ),
+                        );
+                      }).toList(),
                     ),
                   ),
                 ),
-              ],
-            )));
+              ),
+            ],
+          );
+        }));
   }
 }

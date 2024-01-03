@@ -10,7 +10,7 @@ import 'package:travel_app/widgets/card-small.dart';
 
 //screens
 import 'package:travel_app/screens/product.dart';
-import 'package:travel_app/screens/trending.dart';
+import 'package:travel_app/screens/travel.dart';
 
 final Map<String, List<Map>> productCards = {
   "Shoes": [

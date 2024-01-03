@@ -74,9 +74,16 @@ flutter:
     - assets/imgs/Ut_dieu/
     - assets/imgs/Dai_thanh/
     - assets/imgs/Ut_ngan/
+    - assets/imgs/Thanh_thuyen/
+    - assets/imgs/7_lieu/
+    - assets/imgs/9_hung/
+    - assets/imgs/Lang_nghe_lam_than/
     - assets/imgs/360imgs/dai_thanh/
     - assets/imgs/360imgs/ut_dieu/
     - assets/imgs/360imgs/ut_ngan/
+    - assets/imgs/360imgs/thanh_thuyen/
+    - assets/imgs/360imgs/7_lieu/
+    - assets/imgs/360imgs/9_hung/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -86,44 +86,44 @@ class NowDrawer extends StatelessWidget {
               DrawerTile(
                   icon: FontAwesomeIcons.newspaper,
                   onTap: () {
-                    if (currentPage != "Articles") {
-                      Navigator.pushReplacementNamed(context, '/articles');
+                    if (currentPage != "Trending") {
+                      Navigator.pushReplacementNamed(context, '/travel');
                     }
                   },
                   iconColor: NowUIColors.primary,
-                  title: "Articles",
-                  isSelected: currentPage == "Articles" ? true : false),
-              DrawerTile(
-                  icon: FontAwesomeIcons.user,
-                  onTap: () {
-                    if (currentPage != "Profile") {
-                      Navigator.pushReplacementNamed(context, '/profile');
-                    }
-                  },
-                  iconColor: NowUIColors.warning,
-                  title: "Profile",
-                  isSelected: currentPage == "Profile" ? true : false),
-              DrawerTile(
-                  icon: FontAwesomeIcons.fileInvoice,
-                  onTap: () {
-                    if (currentPage != "Account") {
-                      Navigator.pushReplacementNamed(context, '/account');
-                    }
-                  },
-                  iconColor: NowUIColors.info,
-                  title: "Account",
-                  isSelected: currentPage == "Account" ? true : false),
-              DrawerTile(
-                  // ignore: deprecated_member_use
-                  icon: FontAwesomeIcons.cog,
-                  onTap: () {
-                    if (currentPage != "Settings") {
-                      Navigator.pushReplacementNamed(context, '/settings');
-                    }
-                  },
-                  iconColor: NowUIColors.success,
-                  title: "Settings",
-                  isSelected: currentPage == "Settings" ? true : false),
+                  title: "Khám phá",
+                  isSelected: currentPage == "Trending" ? true : false),
+              // DrawerTile(
+              //     icon: FontAwesomeIcons.user,
+              //     onTap: () {
+              //       if (currentPage != "Profile") {
+              //         Navigator.pushReplacementNamed(context, '/profile');
+              //       }
+              //     },
+              //     iconColor: NowUIColors.warning,
+              //     title: "Profile",
+              //     isSelected: currentPage == "Profile" ? true : false),
+              // DrawerTile(
+              //     icon: FontAwesomeIcons.fileInvoice,
+              //     onTap: () {
+              //       if (currentPage != "Account") {
+              //         Navigator.pushReplacementNamed(context, '/account');
+              //       }
+              //     },
+              //     iconColor: NowUIColors.info,
+              //     title: "Account",
+              //     isSelected: currentPage == "Account" ? true : false),
+              // DrawerTile(
+              //     // ignore: deprecated_member_use
+              //     icon: FontAwesomeIcons.cog,
+              //     onTap: () {
+              //       if (currentPage != "Settings") {
+              //         Navigator.pushReplacementNamed(context, '/settings');
+              //       }
+              //     },
+              //     iconColor: NowUIColors.success,
+              //     title: "Settings",
+              //     isSelected: currentPage == "Settings" ? true : false),
             ],
           ),
         ),

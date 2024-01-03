@@ -33,7 +33,7 @@ class CardCategory extends StatelessWidget {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(6.0)),
                         image: DecorationImage(
-                          image: NetworkImage(img),
+                          image: AssetImage(img),
                           fit: BoxFit.cover,
                         ))),
                 Container(

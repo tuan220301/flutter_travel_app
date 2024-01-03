@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_app/screens/home.dart';
 import 'package:travel_app/screens/profile.dart';
 import 'package:travel_app/screens/register.dart';
+import 'package:travel_app/screens/travel.dart';
 import 'package:travel_app/screens/view_360_img.dart';
 
 class AuthPage extends StatelessWidget {
@@ -29,6 +30,7 @@ class AuthPage extends StatelessWidget {
                 "/home": (BuildContext context) => Home(),
                 "/profile": (BuildContext context) => const Profile(),
                 "/360viewer": (BuildContext context) => View360Image(),
+                "/travel": (BuildContext context) => const Trending(),
               },
             );
           } else {
