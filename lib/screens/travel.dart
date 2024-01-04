@@ -41,6 +41,8 @@ class _TrendingState extends State<Trending> {
       'img': 'assets/imgs/Ut_dieu/image12.jpg',
       'phone': '0336019765',
       'location': 'Ấp Sơn Phú 2A, xã Tân Thành, TP Ngã Bảy, Hậu Giang',
+      'lat': 9.862334450359905,
+      'long': 105.8305833,
       'content':
           'Khu du lịch sinh thái Miệt vườn Út Diệu là nơi du khách có thể lựa chọn tìm đến để trải nghiệm các món ăn đặc sản ...',
       'imgDes': 'assets/imgs/Ut_dieu/image10.jpg',
@@ -57,6 +59,8 @@ class _TrendingState extends State<Trending> {
       'img': 'assets/imgs/Ut_ngan/title.jpg',
       'phone': '0919284344',
       'location': '294 Ấp Mái Dầm, Đại Thành, Ngã Bảy, Hậu Giang, Việt Nam',
+      'lat': 9.82237,
+      'long': 105.82895,
       'content':
           'Vườn dâu Út Ngân nằm bên con Kênh Cái Côn - là một trong 7 con kênh làm nên địa danh Ngã Bảy...',
       'imgDes': 'assets/imgs/Ut_ngan/img38.jpg',
@@ -73,6 +77,8 @@ class _TrendingState extends State<Trending> {
       'img': 'assets/imgs/Dai_thanh/img28.jpg',
       'phone': '0939322279',
       'location': 'Nhà văn hóa xã Đại Thành, TP Ngã Bảy, Hậu Giang',
+      'lat': 9.830077998142583,
+      'long': 105.82776838650895,
       'content':
           'Vườn hoa thuộc dự án của hợp tác xã Đại Thành. Vườn hoa Đại Thành là nơi sản xuất hoa để bán Tết, đồng thời là nơi tham quan ...',
       'imgDes': 'assets/imgs/Dai_thanh/img29.jpg',
@@ -89,6 +95,8 @@ class _TrendingState extends State<Trending> {
       'img': 'assets/imgs/9_hung/img5.jpg',
       'phone': '0949353898',
       'location': '390 ấp Đông An 2, xã Tân Thành, thành phố Ngã Bảy',
+      'lat': 9.856227054400604,
+      'long': 105.85241185626924,
       'content':
           'Vườn chôm chôm Chín Hùng tọa lạc gần gần khu dân cư vượt lũ Cái Côn - cầu Cống Đá. Vườn có diện tích khoảng 3ha, ...',
       'imgDes': 'assets/imgs/9_hung/img11.jpg',
@@ -106,6 +114,8 @@ class _TrendingState extends State<Trending> {
       'phone': '0987807274 - 0375558069',
       'location':
           'Số 422, ấp Đông An 2, xã Tân Thành, Thành phố Ngã Bảy, Hậu Giang',
+      'lat': 9.852239209433465,
+      'long': 105.85759640722527,
       'content':
           'Vườn chôm chôm 7 Liễu là nơi thích hợp cho du khách tìm đến địa điểm có kết hợp tham quan, vui chơi giải trí và ăn uống ...',
       'imgDes': 'assets/imgs/7_lieu/img4.jpg',
@@ -122,6 +132,8 @@ class _TrendingState extends State<Trending> {
       'img': 'assets/imgs/Thanh_thuyen/img6.jpg',
       'phone': '0979838860',
       'location': 'số 490, ấp Đông An 2, xã Tân Thành, TP Ngã Bảy, Hậu Giang',
+      'lat': 9.861692972627218,
+      'long': 105.86110074232735,
       'content':
           'Vườn chôm chôm Thanh Thuyền hay còn gọi là vượn Út Ốm. Đường vào vườn Thanh Thuyền khá dễ đi. Vườn rộng 3ha, chôm chôm ...',
       'imgDes': 'assets/imgs/Thanh_thuyen/img7.jpg',
@@ -136,6 +148,8 @@ class _TrendingState extends State<Trending> {
       'img': 'assets/imgs/Lang_nghe_lam_than/img1.jpg',
       'phone': '',
       'location': 'xã Tân Thành, TP Ngã Bảy, Hậu Giang',
+      'lat': 9.861956881431261,
+      'long': 105.85677199574562,
       'content':
           'Làng nghề làm than gồm nhiều hộ gia đình làm than truyền thống bằng gỗ tươi từ cây tràm, dước, bạch đàng,... ',
       'imgDes': 'assets/imgs/Lang_nghe_lam_than/img7.jpg',
@@ -153,6 +167,10 @@ class _TrendingState extends State<Trending> {
     showModalBottomSheet(
         context: context,
         isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+        ),
         builder: (BuildContext context) {
           return SizedBox(
               height: MediaQuery.of(context).size.height * 0.90,
@@ -165,6 +183,11 @@ class _TrendingState extends State<Trending> {
                 title: content['title'],
                 location: content['location'],
                 phone: content['phone'],
+                lat: content['lat'],
+                long: content['long'],
+                closeModal: () {
+                  Navigator.pop(context);
+                },
               ));
         });
   }
@@ -248,6 +271,8 @@ class _TrendingState extends State<Trending> {
                                     height: 5,
                                   ),
                                   ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                          backgroundColor: NowUIColors.active),
                                       onPressed: () =>
                                           openCustomBottomSheet(img),
                                       child: const Text(
