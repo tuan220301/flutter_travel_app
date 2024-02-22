@@ -44,10 +44,12 @@ class View360Image extends StatelessWidget {
                   key: UniqueKey(),
                   child: CustomPanoramaViewer(
                     imagePath:
+                        // ignore: invalid_use_of_protected_member
                         SetView360Controll.viewShow.value['image_360_def'],
                     latitude: -42.366601616265605,
                     longitude: 25.81805741670187,
                     ListHotPot:
+                        // ignore: invalid_use_of_protected_member
                         SetView360Controll.viewShow.value['list_image_360'],
                     onTap: handleChangeView,
                   ),
@@ -58,7 +60,7 @@ class View360Image extends StatelessWidget {
                 left: 0,
                 right: 0,
                 child: Container(
-                  height: 110,
+                  height: 130,
                   color: Colors.white,
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -68,40 +70,45 @@ class View360Image extends StatelessWidget {
                           listScrollButtonBottom.asMap().entries.map((entry) {
                         final index = entry.key;
                         final element = entry.value;
-                        return Container(
-                          width: 145,
-                          height: 110,
-                          margin: const EdgeInsets.all(1),
-                          child: OutlinedButton(
-                            onPressed: () => onChange360Image(index),
-                            style: OutlinedButton.styleFrom(
-                              side: BorderSide(
-                                  width: 1,
-                                  color: index == selectedButtonIndex.value
-                                      ? NowUIColors.active
-                                      : NowUIColors.input),
-                            ),
-                            child: Column(
-                              children: [
-                                const SizedBox(
-                                  height: 10,
+                        return Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Container(
+                            width: 145,
+                            height: 160,
+                            margin: const EdgeInsets.all(1),
+                            child: OutlinedButton(
+                              onPressed: () => onChange360Image(index),
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
                                 ),
-                                SizedBox(
-                                  width: 145,
-                                  height: 60,
-                                  child: Image.asset(
-                                    element['image'].toString(),
-                                    fit: BoxFit.cover,
+                                side: BorderSide(
+                                    width: 2,
+                                    color: index == selectedButtonIndex.value
+                                        ? NowUIColors.active
+                                        : NowUIColors.input),
+                              ),
+                              child: Column(
+                                children: [
+                                  const SizedBox(
+                                    height: 10,
                                   ),
-                                ),
-                                Text(
-                                  element['title'].toString(),
-                                  style: const TextStyle(
-                                      fontSize: 12, color: NowUIColors.black),
-                                  textAlign: TextAlign.center,
-                                  // ignore: unrelated_type_equality_checks
-                                ),
-                              ],
+                                  SizedBox(
+                                    width: 145,
+                                    height: 60,
+                                    child: Image.asset(
+                                      element['image'].toString(),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Text(
+                                    element['title'].toString(),
+                                    style: const TextStyle(
+                                        fontSize: 12, color: NowUIColors.black),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );

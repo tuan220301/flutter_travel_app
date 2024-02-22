@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -26,7 +25,6 @@ class ImageController extends GetxController {
 // ignore: must_be_immutable
 class Home extends StatelessWidget {
   final userControll = Get.put(UserController());
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   // final urlListController = Get.put(ImageController());
   RxInt indexListImg = 0.obs;
   RxInt selectedButton = 1.obs;
@@ -197,7 +195,7 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(
-            height: 5,
+            height: 10,
           ),
           Obx(() {
             return CarouselSlider(
@@ -247,17 +245,21 @@ class Home extends StatelessWidget {
                 child: Row(
                   children: listButton.map((element) {
                     return Container(
-                      width: 120,
+                      width: 130,
                       height: 130,
                       margin: const EdgeInsets.all(1),
                       child: OutlinedButton(
                         onPressed: () => handleChangeListImage(element),
                         style: OutlinedButton.styleFrom(
                           side: BorderSide(
-                              width: 1,
-                              color: element['id'] == selectedButton.value
-                                  ? NowUIColors.active
-                                  : NowUIColors.input),
+                            width: 2,
+                            color: element['id'] == selectedButton.value
+                                ? NowUIColors.active
+                                : NowUIColors.input,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
                         ),
                         child: Column(
                           children: [
@@ -265,8 +267,8 @@ class Home extends StatelessWidget {
                               height: 10,
                             ),
                             SizedBox(
-                              width: 145,
-                              height: 80,
+                              width: 140,
+                              height: 60,
                               child: Image.asset(element['image'],
                                   fit: BoxFit.cover),
                             ),

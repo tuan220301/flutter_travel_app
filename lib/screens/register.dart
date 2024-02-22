@@ -5,7 +5,6 @@ import 'package:travel_app/constants/printCus.dart';
 import 'package:travel_app/controllers/user.dart';
 import 'package:travel_app/firebaseservices.dart';
 import 'package:get/get.dart';
-import 'package:travel_app/screens/home.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
